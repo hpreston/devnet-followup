@@ -25,11 +25,12 @@ def sendEmail(recipient, subject, body):
     msg.attach(part2)
 
     mailsvr = smtplib.SMTP()
-    mailsvr.connect(server,587)
+    # mailsvr.connect(server,587)
+    mailsvr.connect(server,25)
     mailsvr._host = server
     mailsvr.ehlo()
-    mailsvr.starttls()
-    mailsvr.login(username, password)
+    # mailsvr.starttls()
+    # mailsvr.login(username, password)
     mailsvr.sendmail(msg['From'], msg['To'], msg.as_string())
     return True
 
